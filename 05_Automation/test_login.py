@@ -23,13 +23,13 @@ def test_successful_login(driver):
     
     # 3. Нажимаем кнопку "Login"
     driver.find_element(By.ID, "login-button").click()
-    
+
     # 4. Ждем, пока загрузится страница, и проверяем заголовок
     header = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CLASS_NAME, "title"))
     )
     assert header.text == "Products", "Не удалось войти в систему!"
-    
+
 def test_locked_out_user(driver):
     """Тест: Попытка входа заблокированного пользователя"""
     driver.get("https://www.saucedemo.com/")
